@@ -1,0 +1,26 @@
+{
+  "name": "playwright-tests",
+  "version": "1.0.0",
+  "description": "Combined UI and API tests using Playwright",
+  "scripts": {
+    "test": "playwright test",
+    "test:api": "start-server-and-test \"json-server --watch db.json --host 127.0.0.1 --port 3000\" http://127.0.0.1:3000 \"playwright test --project=api\"",
+    "test:ui": "playwright test tests/ui",
+    "test:ui:chrome": "playwright test tests/ui --project=chromium",
+    "test:ui:chrome:headed": "playwright test tests/ui --project=chromium --headed",
+    "show-report": "playwright show-report",
+    "start-server": "json-server --watch db.json --host 127.0.0.1 --port 3000"
+  },
+  "dependencies": {
+    "json-server": "^0.17.3",
+    "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.35.0",
+    "@types/node": "^20.10.0",
+    "@types/uuid": "^9.0.2",
+    "typescript": "^5.0.0",
+    "wait-on": "^7.2.0",
+    "start-server-and-test": "^2.0.0"
+  }
+}
